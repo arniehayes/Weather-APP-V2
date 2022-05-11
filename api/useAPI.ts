@@ -5,17 +5,17 @@ import { useState, useContext } from "react";
 const OPEN_WEATHER_KEY = '4c9c09da9dd01b0168f894bc925358bd';
 
 // using api to get the daily forecast
-export const getDailyForecast = (searchTerm, OPEN_WEATHER_KEY) => {
+export const getDailyForecast = ( searchTerm: string ) => {
     axios
         .get(
             `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=imperial&appid=${OPEN_WEATHER_KEY}`
         )
         .then((response) => {
             // Getting main display data
-            setCity(response.data.name);
-            setConditionIcon(response.data.weather[0].icon);
-            setTemp(response.data.main.temp);
-            setCondition(response.data.weather[0].main);
+            setCity<string>(response.data.name);
+            setConditionIcon<string>(response.data.weather[0].icon);
+            setTemp<string>(response.data.main.temp);
+            setCondition<string>(response.data.weather[0].main);
 
             // calling this here so the lat and lon values will be correct
             const coords = getWeeklyForecast(response.data.coord.lat, response.data.coord.lon);
@@ -28,7 +28,7 @@ export const getDailyForecast = (searchTerm, OPEN_WEATHER_KEY) => {
 
 
 
-export const getWeeklyForecast = (lat, lon) => {
+export const getWeeklyForecast = (lat: number, lon: number) => {
   axios
     .get(
       `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_KEY}`
