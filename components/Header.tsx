@@ -1,18 +1,27 @@
 import React, { useState, useContext } from "react";
 import { getDailyForecast } from "../api/useAPI";
 
+import { AddressContext } from "../pages/index";
+
 const Header = () => {
 
+  const {
+    setCity,
+    city
+  } = useContext(AddressContext);
+
   // getting the search value
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<any>();
   const handleInput = (e: any) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
   };
 
-  const data = getDailyForecast(searchTerm);
-
-  return (<div>{data.setCity}</div>);
+  return (
+    <header>
+      {}
+    </header>
+  );
 };
 
 export default Header;
