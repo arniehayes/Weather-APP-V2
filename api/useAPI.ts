@@ -5,7 +5,7 @@ import { useState, useContext } from "react";
 const OPEN_WEATHER_KEY: string = '4c9c09da9dd01b0168f894bc925358bd';
 
 // Getting the Daily forecast and creating a custom hook
-export const getDailyForecast = ( searchTerm: any ) => {
+export async function getDailyForecast( searchTerm: any ) {
     axios
         .get(
             `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=imperial&appid=${OPEN_WEATHER_KEY}`
@@ -24,7 +24,7 @@ export const getDailyForecast = ( searchTerm: any ) => {
           );
 
           console.log("Daily Forecast: " , response);
-          return { city, conditionIcon, temp, condition, coords };
+          return [city, conditionIcon, temp, condition, coords];
         })
         .catch((error) => console.error(`Error: ${error}`));
 }; 

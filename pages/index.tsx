@@ -8,9 +8,32 @@ import Header from "../components/Header";
 export const AddressContext = React.createContext<any>({});
 
 export default function Home() {
+  interface Daily {
+    city: string;
+    temp: number;
+    condition: string;
+    conditionIcon: string;
+  }
+
+  interface Info {
+    temp: number
+    conditionIcon: string;
+  }
+
+  interface Weekly {
+    day: Info[];
+  }
+
+
+  
+  const [dailyForecast, setDailyForecast] = useState<Daily[]>([]);
+  const [weeklyForecast, setWeeklyForecast] = useState<Weekly[]>([]);
+
+
+
   const [hasBeenSearched, setHasBeenSearched] = useState<boolean>(false);
   // Main info searched
-  const [city, setCity] = useState<string>("");
+  //const [city, setCity] = useState<string>("");
   const [temp, setTemp] = useState<number>(0);
   const [condition, setCondition] = useState<string>("");
   const [conditionIcon, setConditionIcon] = useState<string>("");
@@ -44,12 +67,19 @@ export default function Home() {
     <>
       {/* Components */}
       <AddressContext.Provider
-        value ={{
+        value={{
+          
+          dailyForecast,
+          setDailyForecast,
+
+          weeklyForecast,
+          setWeeklyForecast,
+
           hasBeenSearched,
           setHasBeenSearched,
 
-          city,
-          setCity,
+          // city,
+          // setCity,
           temp,
           setTemp,
           condition,
