@@ -1,25 +1,40 @@
 import React, { useState, useContext } from "react";
-import { getDailyForecast } from "../api/useAPI";
-
 import { AddressContext } from "../pages/index";
 
 const Header = () => {
 
-  const {
-    setCity,
-    city
-  } = useContext(AddressContext);
+  const { setHasBeenSearched, setSearchTerm } = useContext(AddressContext);
 
-  // getting the search value
-  const [searchTerm, setSearchTerm] = useState<any>();
-  const handleInput = (e: any) => {
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
   };
 
   return (
     <header>
-      {}
+      <div className="header">
+        Weather
+        <nav className="nav">
+          <input
+            type="text"
+            onChange={handleInput}
+            placeholder="Enter zip code"
+            className="Search"
+          ></input>
+          {/* this will call your api whatever the input value is */}
+          <button
+            onClick={() => {
+              // getDailyForecast();
+              setHasBeenSearched(true);
+            }}
+            id="search_button"
+            type="submit"
+          >
+            {" "}
+            Search
+          </button>
+        </nav>
+      </div>
     </header>
   );
 };
