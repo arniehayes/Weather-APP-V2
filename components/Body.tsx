@@ -6,11 +6,9 @@ const Body = () => {
 
     const {
         hasBeenSearched,
+        setHasBeenSearched,
         setDailyForecast,
-        dailyForecast,
-        weeklyForecast,
         setWeeklyForecast,
-        info,
         setInfo,
         searchTerm,
     } = useContext(AddressContext);
@@ -26,7 +24,7 @@ const Body = () => {
             `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=imperial&appid=${API_KEY_V2}`
           )
           .then((response) => {
-            // Getting main display data
+            // Getting current weather
             setDailyForecast([
               {
                 city: response.data.name,
@@ -35,12 +33,6 @@ const Body = () => {
                 conditionIcon: response.data.weather[0].icon,
               },
             ]);
-            // setCity(response.data.name); /* setCity */
-            // const conditionIcon: string =
-            // response.data.weather[0].icon; /* setConditionIcon */
-            // const temp: number = response.data.main.temp; /* setCity */
-            // const condition: string =
-            // response.data.weather[0].main; /* setCondition */
 
             // calling this here so the lat and lon values will be correct
             const coords = getWeeklyForecast(
@@ -111,7 +103,12 @@ const Body = () => {
             })
         .catch((error) => console.error(`Error: ${error}`));
     }
-    getDailyForecast(searchTerm);
+    
+    if (hasBeenSearched) {
+        console.log(hasBeenSearched);
+        getDailyForecast(searchTerm);
+        setHasBeenSearched(false);
+    }
 
     return (
         <section>
