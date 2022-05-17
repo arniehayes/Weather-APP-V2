@@ -8,6 +8,7 @@ const Header = () => {
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchTerm(e.target.value);
+    console.log(e.target.value);
   };
 
   return (

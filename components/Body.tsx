@@ -14,10 +14,19 @@ const Body = () => {
       searchTerm,
       setSearchTerm,
     } = useContext(AddressContext);
-    const OPEN_WEATHER_KEY: string = "4c9c09da9dd01b0168f894bc925358bd";
+
+    const API_KEY: string = "4c9c09da9dd01b0168f894bc925358bd";
     const API_KEY_V2: string = "53097cb2fae5a9644a976017e7d9515c";
 
     // use useEffect if you want to set a default location
+    useEffect(() => {
+        if (hasBeenSearched && searchTerm) {
+            getDailyForecast(searchTerm);
+            console.log("Daily Forecast:", dailyForecast[0]);
+            setHasBeenSearched(false);
+            //setSearchTerm("");
+        }
+    }, [searchTerm, hasBeenSearched]);
 
     // Getting the Daily forecast and creating a custom hook
     const getDailyForecast = (searchTerm: any) => {
@@ -105,13 +114,7 @@ const Body = () => {
             })
         .catch((error) => console.error(`Error: ${error}`));
     }
-    
-    if (hasBeenSearched) {
-        getDailyForecast(searchTerm);
-        console.log("Daily Forecast:" , dailyForecast[0]);
-        setHasBeenSearched(false);
-        setSearchTerm("");
-    }
+
 
     return (
         <section>
