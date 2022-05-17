@@ -5,12 +5,14 @@ import { AddressContext } from "../pages/index";
 const Body = () => {
 
     const {
-        hasBeenSearched,
-        setHasBeenSearched,
-        setDailyForecast,
-        setWeeklyForecast,
-        setInfo,
-        searchTerm,
+      hasBeenSearched,
+      setHasBeenSearched,
+      dailyForecast,
+      setDailyForecast,
+      setWeeklyForecast,
+      setInfo,
+      searchTerm,
+      setSearchTerm,
     } = useContext(AddressContext);
     const OPEN_WEATHER_KEY: string = "4c9c09da9dd01b0168f894bc925358bd";
     const API_KEY_V2: string = "53097cb2fae5a9644a976017e7d9515c";
@@ -105,9 +107,10 @@ const Body = () => {
     }
     
     if (hasBeenSearched) {
-        console.log(hasBeenSearched);
         getDailyForecast(searchTerm);
+        console.log("Daily Forecast:" , dailyForecast[0]);
         setHasBeenSearched(false);
+        setSearchTerm("");
     }
 
     return (
