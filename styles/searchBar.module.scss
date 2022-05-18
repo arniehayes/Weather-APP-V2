@@ -1,0 +1,29 @@
+.search__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.search__input-container {
+    position: relative;
+    padding-top: 2rem;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.search__input-container__input {
+    border-radius: 10px;
+    border: 2px solid black;
+    height: 40px;
+    width: 100%;
+}
+
+.search__input-container--button {
+    position: absolute;
+    right: 0;
+}
