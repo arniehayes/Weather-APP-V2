@@ -7,12 +7,12 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const SearchBar = () => {
     
-    const { setHasBeenSearched, setSearchTerm, searchTerm } = useContext(AddressContext);
+    const { setHasBeenSearched, setSearchTerm, searchTerm } =
+      useContext(AddressContext);
     
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         setSearchTerm(e.target.value);
-        //console.log(e.target.value);
     };
 
     return (
@@ -23,7 +23,7 @@ const SearchBar = () => {
             onChange={handleInput}
             placeholder="Enter zip code"
             className={style["search__input-container__input"]}
-            value={searchTerm}
+            name={searchTerm}
           ></input>
           <Button
             onClick={() => {

@@ -1,5 +1,3 @@
-//import styles from '../styles/......'
-import { LargeNumberLike } from "crypto";
 import React, { useState, useContext } from "react";
 import Body from "../components/Body";
 import Header from "../components/Header";
@@ -14,6 +12,8 @@ export default function Home() {
     temp: number;
     condition: string;
     conditionIcon: string;
+    minTemp: number;
+    maxTemp: number;
   }
 
   interface Weekly {
@@ -30,6 +30,7 @@ export default function Home() {
     humidity: number;
     visibility: number;
     feelsLike: number;
+    pressure: number;
   }
 
   //  API states

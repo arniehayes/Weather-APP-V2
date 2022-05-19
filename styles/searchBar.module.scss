@@ -7,18 +7,18 @@
 }
 .search__input-container {
     position: relative;
-    padding-top: 2rem;
     width: 90%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    margin: 2rem;
 }
 
 .search__input-container__input {
     border-radius: 10px;
-    border: 2px solid black;
+    border: 2px solid transparent;
     height: 40px;
     width: 100%;
 }

@@ -8,6 +8,7 @@ body {
   height: auto;
   min-height: 100vh;
   scroll-behavior: smooth;
+  background-image: linear-gradient(to top, #e9b787 0%, #676dc7 100%);
 }
 
 a {

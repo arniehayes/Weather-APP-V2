@@ -1,0 +1,38 @@
+.current-weather__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.current-weather__container--inner {
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-weather--city {
+    font-size: 35px;
+}
+
+.current-weather--temp {
+    font-size: 60px;
+    padding-left: 20px;
+}
+
+.current-weather--condition {
+    font-size: 18px;
+}
+
+.current-weather__temp-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current-weather--min-max-temp{
+    margin: 0 5px;
+}

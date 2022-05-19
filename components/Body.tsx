@@ -1,18 +1,20 @@
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import { AddressContext } from "../pages/index";
+import CurrentWeather from "./CurrentWeather";
+import style from "../styles/body.module.scss";
 
 const Body = () => {
 
     const {
         hasBeenSearched,
         setHasBeenSearched,
-        dailyForecast,
         setDailyForecast,
-        weeklyForecast,
+        dailyForecast,
         setWeeklyForecast,
-        info,
+        weeklyForecast,
         setInfo,
+        info,
         searchTerm,
         setSearchTerm,
     } = useContext(AddressContext);
@@ -28,11 +30,11 @@ const Body = () => {
         }
     }, [searchTerm, hasBeenSearched]);
 
-    // useEffect(() => {
-    //     console.log("Daily Forecast:", dailyForecast[0]);
-    //     console.log("Weekly Forecast: ", weeklyForecast);
-    //     console.log("Info: ", info[0]);
-    // }, [dailyForecast,weeklyForecast,info]);
+    useEffect(() => {
+        console.log("Daily Forecast:", dailyForecast[0]);
+        console.log("Weekly Forecast: ", weeklyForecast);
+        console.log("Info: ", info[0]);
+    }, [dailyForecast,weeklyForecast,info]);
 
     // Getting the Daily forecast and creating a custom hook
     const getDailyForecast = (searchTerm: any) => {
@@ -48,6 +50,8 @@ const Body = () => {
                 temp: response.data.main.temp,
                 condition: response.data.weather[0].main,
                 conditionIcon: response.data.weather[0].icon,
+                minTemp: response.data.main.temp_min,
+                maxTemp: response.data.main.temp_max
               },
             ]);
 
@@ -125,8 +129,8 @@ const Body = () => {
 
 
     return (
-        <section>
-            
+        <section className={style['body']}>
+            {dailyForecast.length > 0 && <CurrentWeather />}
       </section>
     );
 };
