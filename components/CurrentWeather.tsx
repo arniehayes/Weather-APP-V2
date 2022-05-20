@@ -7,8 +7,8 @@ const CurrentWeather = () => {
 
     const truncatedValues = {
       temp: Math.trunc(dailyForecast[0].temp),
-      maxTemp: "H:" + Math.trunc(dailyForecast[0].maxTemp) + "°",
-      minTemp: "L:" + Math.trunc(dailyForecast[0].minTemp) + "°"
+      maxTemp: "H:" + Math.trunc(dailyForecast[0].maxTemp),
+      minTemp: "L:" + Math.trunc(dailyForecast[0].minTemp)
     };
 
     return (

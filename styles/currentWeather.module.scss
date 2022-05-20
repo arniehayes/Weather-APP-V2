@@ -39,6 +39,12 @@
 }
 
 .current-weather--min-max-temp{
-    margin: 0 5px;
+    margin: 0 7px;
     font-size: 18px;
+    position: relative;
+
+    &:after {
+        position: absolute;
+        content: "°";
+    }
 }
