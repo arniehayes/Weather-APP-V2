@@ -6,7 +6,7 @@ const CurrentWeather = () => {
     const { dailyForecast } = useContext(AddressContext);
 
     const truncatedValues = {
-      temp: Math.trunc(dailyForecast[0].temp) + "°",
+      temp: Math.trunc(dailyForecast[0].temp),
       maxTemp: "H:" + Math.trunc(dailyForecast[0].maxTemp) + "°",
       minTemp: "L:" + Math.trunc(dailyForecast[0].minTemp) + "°"
     };
@@ -19,7 +19,7 @@ const CurrentWeather = () => {
             {dailyForecast[0].city}
           </div>
           {/* TEMPERATURE */}
-          <div className={style["current-weather--temp"]}>
+          <div className={`${style["current-weather--temp"]}`}>
             {truncatedValues.temp}
           </div>
           {/* CONDITION */}

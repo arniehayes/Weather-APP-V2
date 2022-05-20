@@ -19,7 +19,12 @@
 
 .current-weather--temp {
     font-size: 60px;
-    padding-left: 20px;
+    position: relative;
+
+    &:after {
+        position: absolute;
+        content: "°";
+    }
 }
 
 .current-weather--condition {
@@ -35,4 +40,5 @@
 
 .current-weather--min-max-temp{
     margin: 0 5px;
+    font-size: 18px;
 }
