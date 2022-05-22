@@ -3,20 +3,23 @@ import React, { useState, useContext, useEffect } from "react";
 import { AddressContext } from "../pages/index";
 import CurrentWeather from "./CurrentWeather";
 import style from "../styles/body.module.scss";
+import HourlyWeather from "./HourlyWeather";
 
 const Body = () => {
 
     const {
-        hasBeenSearched,
-        setHasBeenSearched,
-        setDailyForecast,
-        dailyForecast,
-        setWeeklyForecast,
-        weeklyForecast,
-        setInfo,
-        info,
-        searchTerm,
-        setSearchTerm,
+      hasBeenSearched,
+      setHasBeenSearched,
+      setDailyForecast,
+      dailyForecast,
+      setWeeklyForecast,
+      weeklyForecast,
+      setInfo,
+      info,
+      searchTerm,
+      setSearchTerm,
+      hourlyForecast,
+      setHourlyForecast,
     } = useContext(AddressContext);
 
     const API_KEY: string = "4c9c09da9dd01b0168f894bc925358bd";
@@ -33,8 +36,9 @@ const Body = () => {
     useEffect(() => {
         console.log("Daily Forecast:", dailyForecast[0]);
         console.log("Weekly Forecast: ", weeklyForecast);
-        console.log("Info: ", info[0]);
-    }, [dailyForecast,weeklyForecast,info]);
+      console.log("Info: ", info[0]);
+      console.log("hourly: ", hourlyForecast)
+    }, [dailyForecast,weeklyForecast,info, hourlyForecast]);
 
     // Getting the Daily forecast and creating a custom hook
     const getDailyForecast = (searchTerm: any) => {
@@ -123,14 +127,25 @@ const Body = () => {
                 feelsLike: res.data.current.feels_like,
               },
             ]);
+
+            setHourlyForecast([
+              {
+                temp: res.data.hourly
+              }
+            ]);
           })
           .catch((error) => console.error(`Error: ${error}`));
     }
 
 
     return (
-        <section className={style['body']}>
-            {dailyForecast.length > 0 && <CurrentWeather />}
+      <section className={style["body"]}>
+        {dailyForecast.length > 0 && (
+          <>
+            <CurrentWeather />
+            <HourlyWeather />
+          </>
+        )}
       </section>
     );
 };

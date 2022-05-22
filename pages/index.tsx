@@ -33,9 +33,14 @@ export default function Home() {
     pressure: number;
   }
 
+  interface Hourly {
+    temp: number;
+  }
+
   //  API states
   const [dailyForecast, setDailyForecast] = useState<Daily[]>([]);
   const [weeklyForecast, setWeeklyForecast] = useState<Weekly[]>([]);
+  const [hourlyForecast, setHourlyForecast] = useState<Hourly[]>([]);
   const [info, setInfo] = useState<WeatherInfo[]>([]);
 
   // State fir holding if something has been searched
@@ -47,7 +52,7 @@ export default function Home() {
     <>
       {/* Components */}
       <AddressContext.Provider
-        value={{     
+        value={{
           hasBeenSearched,
           setHasBeenSearched,
           searchTerm,
@@ -57,7 +62,9 @@ export default function Home() {
           weeklyForecast,
           setWeeklyForecast,
           info,
-          setInfo
+          setInfo,
+          hourlyForecast,
+          setHourlyForecast,
         }}
       >
         <Header />
