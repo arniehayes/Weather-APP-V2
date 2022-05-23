@@ -36,9 +36,8 @@ const Body = () => {
     useEffect(() => {
         console.log("Daily Forecast:", dailyForecast[0]);
         console.log("Weekly Forecast: ", weeklyForecast);
-      console.log("Info: ", info[0]);
-      console.log("hourly: ", hourlyForecast)
-    }, [dailyForecast,weeklyForecast,info, hourlyForecast]);
+        console.log("Info: ", info[0]);
+    }, [dailyForecast,weeklyForecast,info]);
 
     // Getting the Daily forecast and creating a custom hook
     const getDailyForecast = (searchTerm: any) => {
@@ -128,11 +127,7 @@ const Body = () => {
               },
             ]);
 
-            setHourlyForecast([
-              {
-                temp: res.data.hourly
-              }
-            ]);
+            setHourlyForecast(res.data.hourly);
           })
           .catch((error) => console.error(`Error: ${error}`));
     }

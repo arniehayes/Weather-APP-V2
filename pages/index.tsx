@@ -46,7 +46,7 @@ export default function Home() {
   // State fir holding if something has been searched
   const [hasBeenSearched, setHasBeenSearched] = useState<boolean>(false);
 
-  const [searchTerm, setSearchTerm] = useState<string>();
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   return (
     <>
