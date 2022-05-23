@@ -14,9 +14,9 @@ const HourlyWeather = () => {
       <section>
         <div>
           <ul>
-            {hourlyForecast.length > 0 && hourlyForecast && hourlyForecast.temp.map((temp: number, key: number) => (
+            {/* {hourlyForecast.length > 0 && hourlyForecast && hourlyForecast.temp.map((temp: number, key: number) => (
               <li key={key}>{temp}</li>
-            ))}
+            ))} */}
           </ul>
         </div>
       </section>
