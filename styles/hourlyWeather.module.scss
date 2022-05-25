@@ -1,0 +1,27 @@
+.hourly-weather__container {
+
+}
+
+.hourly-weather__list-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.hourly-weather__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hourly-weather__list--li {
+    padding: 5px;
+    position: relative;
+
+    &:after {
+        position: absolute;
+        content: "°";
+    }
+}

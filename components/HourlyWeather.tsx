@@ -4,22 +4,27 @@ import style from "../styles/hourlyWeather.module.scss";
 
 const HourlyWeather = () => {
 
-    const { hourlyForecast } = useContext(AddressContext);
+  const { hourlyForecast, alerts } = useContext(AddressContext);
+  const newHourly = hourlyForecast.slice(0, 12);
 
     useEffect(() => {
-        console.log("hourly: ", hourlyForecast);
-    }, [hourlyForecast]);
+      console.log("hourly: ", hourlyForecast);
+      console.log("alerts", alerts)
+    }, [hourlyForecast, alerts]);
 
     return (
-      <section>
-        <div>
-          <ul>
-            {/* {hourlyForecast.length > 0 && hourlyForecast && hourlyForecast.temp.map((temp: number, key: number) => (
-              <li key={key}>{temp}</li>
-            ))} */}
+      <div className={style["hourly-weather__container"]}>
+        <div className={style["hourly-weather__list-container"]}>
+          <ul className={style["hourly-weather__list"]}>
+            {hourlyForecast.length > 0 &&
+              newHourly.map((item, key: number) => (
+                <li key={key} className={style["hourly-weather__list--li"]}>
+                  {Math.trunc(item.temp)}
+                </li>
+              ))}
           </ul>
         </div>
-      </section>
+      </div>
     );
 };
 

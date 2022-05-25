@@ -20,6 +20,7 @@ const Body = () => {
       setSearchTerm,
       hourlyForecast,
       setHourlyForecast,
+      setAlerts,
     } = useContext(AddressContext);
 
     const API_KEY: string = "4c9c09da9dd01b0168f894bc925358bd";
@@ -128,6 +129,8 @@ const Body = () => {
             ]);
 
             setHourlyForecast(res.data.hourly);
+
+            setAlerts(res.data.alerts);
           })
           .catch((error) => console.error(`Error: ${error}`));
     }
