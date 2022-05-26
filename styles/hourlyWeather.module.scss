@@ -1,9 +1,19 @@
 .hourly-weather__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
 }
 
 .hourly-weather__list-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  height: 6rem;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 
 .hourly-weather__list {
@@ -11,13 +21,15 @@
   margin: 0;
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 .hourly-weather__list--li {
   padding: 5px;
   position: relative;
+  font-size: 20px;
+  //margin: 0 1rem;
 
   &:after {
     position: absolute;

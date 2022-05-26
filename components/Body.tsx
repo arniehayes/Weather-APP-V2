@@ -20,7 +20,6 @@ const Body = () => {
     hourlyForecast,
     setHourlyForecast,
     setAlerts,
-    alerts,
   } = useContext(AddressContext);
 
   const API_KEY: string = "4c9c09da9dd01b0168f894bc925358bd";
@@ -35,9 +34,9 @@ const Body = () => {
   }, [searchTerm, hasBeenSearched]);
 
   useEffect(() => {
-    console.log("Daily Forecast:", dailyForecast[0]);
+    console.log("Daily Forecast:", dailyForecast);
     console.log("Weekly Forecast: ", weeklyForecast);
-    console.log("Info: ", info[0]);
+    console.log("Info: ", info);
   }, [dailyForecast, weeklyForecast, info]);
 
   // Getting the Daily forecast and creating a custom hook
@@ -116,7 +115,7 @@ const Body = () => {
           },
         ]);
 
-        setInfo([
+        setInfo(
           {
             uvIndex: res.data.current.uvi,
             windStatus: res.data.current.wind_speed,
@@ -126,23 +125,23 @@ const Body = () => {
             visibility: res.data.current.visibility,
             feelsLike: res.data.current.feels_like,
           },
-        ]);
+        );
 
         setHourlyForecast(res.data.hourly);
 
-        setAlerts([
+        setAlerts(
           {
             alert: res.data.alerts[0].event
           }
-        ]);
-        
+        );
+
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
 
   return (
     <section className={style["body"]}>
-      {dailyForecast.length > 0 && (
+      {dailyForecast && (
         <>
           <CurrentWeather />
           <HourlyWeather />

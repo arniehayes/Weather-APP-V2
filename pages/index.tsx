@@ -41,11 +41,11 @@ export default function Home() {
   }
 
   //  API states
-  const [dailyForecast, setDailyForecast] = useState<Daily[]>([]);
-  const [weeklyForecast, setWeeklyForecast] = useState<Weekly[]>([]);
+  const [dailyForecast, setDailyForecast] = useState<Daily>();
+  const [weeklyForecast, setWeeklyForecast] = useState<Weekly>();
   const [hourlyForecast, setHourlyForecast] = useState<Hourly[]>([]);
-  const [info, setInfo] = useState<WeatherInfo[]>([]);
-  const [alerts, setAlerts] = useState<Alerts[]>([]);
+  const [info, setInfo] = useState<WeatherInfo>();
+  const [alerts, setAlerts] = useState<Alerts>();
 
   // State fir holding if something has been searched
   const [hasBeenSearched, setHasBeenSearched] = useState<boolean>(false);
