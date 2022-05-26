@@ -1,32 +1,50 @@
 .hourly-weather__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
 }
 
 .hourly-weather__list-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: flex-start;
   height: 6rem;
   border: 1px solid white;
   border-radius: 10px;
+  overflow-y: hidden;
+  overflow-x: scroll;
 }
 
-.hourly-weather__list {
-  padding: 0;
+.hourly-weather__list--time {
+  padding: 5px;
   margin: 0;
   list-style: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
-.hourly-weather__list--li {
+.hourly-weather__list--temp {
   padding: 5px;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hourly-weather__list--li-time {
+  padding: 5px 18px 5px 9px;
+  position: relative;
+  font-size: 20px;
+  //margin: 0 1rem;
+}
+
+.hourly-weather__list--li-temp {
+  padding: 5px 18px 5px 9px;
   position: relative;
   font-size: 20px;
   //margin: 0 1rem;
