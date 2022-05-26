@@ -31,6 +31,9 @@ const HourlyWeather = () => {
     updatedHour + 11,
   ];
 
+  const zipped = time.map((x, i) => [x, newHourly[i]]);
+  console.log("zip: ", zipped);
+
   useEffect(() => {
     console.log("hourly: ", hourlyForecast);
     console.log("alerts", alerts);
@@ -39,18 +42,16 @@ const HourlyWeather = () => {
   return (
     <div className={style["hourly-weather__container"]}>
       <div className={style["hourly-weather__list-container"]}>
-        <ul className={style["hourly-weather__list--time"]}>
-          {time.map((item: any, key: number) => (
-            <li key={key} className={style["hourly-weather__list--li-time"]}>
-              {item}
-            </li>
-          ))}
-        </ul>
-        <ul className={style["hourly-weather__list--temp"]}>
+        <ul className={style["hourly-weather__list--ul"]}>
           {hourlyForecast.length > 0 &&
-            newHourly.map((item, key: number) => (
-              <li key={key} className={style["hourly-weather__list--li-temp"]}>
-                {Math.trunc(item.temp)}
+            zipped.map((item, key) => (
+              <li key={key} className={style["hourly-weather__list--li"]}>
+                <p className={style["hourly-weather__list--li-time"]}>
+                  {item[0]}
+                </p>
+                <p className={style["hourly-weather__list--li-temp"]}>
+                  {Math.trunc(item[1].temp)}
+                </p>
               </li>
             ))}
         </ul>

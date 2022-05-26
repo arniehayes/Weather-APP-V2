@@ -11,43 +11,40 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  height: 6rem;
   border: 1px solid white;
   border-radius: 10px;
   overflow-y: hidden;
   overflow-x: scroll;
 }
 
-.hourly-weather__list--time {
+.hourly-weather__list--ul {
   padding: 5px;
   margin: 0;
   list-style: none;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
 }
 
-.hourly-weather__list--temp {
-  padding: 5px;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.hourly-weather__list--li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 18px 5px 5px;
 }
 
 .hourly-weather__list--li-time {
-  padding: 5px 18px 5px 9px;
+  padding: 5px;
   position: relative;
-  font-size: 20px;
-  //margin: 0 1rem;
+  font-size: 17px;
+  margin: 0;
 }
 
 .hourly-weather__list--li-temp {
-  padding: 5px 18px 5px 9px;
+  padding: 5px;
   position: relative;
   font-size: 20px;
-  //margin: 0 1rem;
+  margin: 0;
 
   &:after {
     position: absolute;

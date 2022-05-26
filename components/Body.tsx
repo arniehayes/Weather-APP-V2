@@ -127,7 +127,7 @@ const Body = () => {
           },
         );
 
-        setHourlyForecast(res.data.hourly);
+        setHourlyForecast( res.data.hourly);
 
         setAlerts(
           {
