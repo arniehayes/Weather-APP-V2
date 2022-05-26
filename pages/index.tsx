@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import Body from "../components/Body";
 import Header from "../components/Header";
 
-
 // AddressContext
 export const AddressContext = React.createContext<any>({});
 
@@ -71,7 +70,7 @@ export default function Home() {
           hourlyForecast,
           setHourlyForecast,
           alerts,
-          setAlerts
+          setAlerts,
         }}
       >
         <Header />
