@@ -15,7 +15,27 @@
   border-radius: 10px;
   overflow-y: hidden;
   overflow-x: scroll;
+  background-image: linear-gradient(to top, #e9b787 0%, #676dc7 100%);
 }
+
+.hourly-weather__title{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-left: 15px;
+}
+
+.hourly-weather__title--icon {
+  width: 18px;
+  height: auto;
+  color: lightgray;
+}
+
+.hourly-weather__title--name{
+  font-size: 15px;
+  color: rgb(177, 177, 177);
+} 
 
 .hourly-weather__list--ul {
   padding: 5px;
@@ -38,6 +58,11 @@
   position: relative;
   font-size: 17px;
   margin: 0;
+}
+
+.hourly-weather__list--li-icon {
+  width: 50px;
+  height: auto;
 }
 
 .hourly-weather__list--li-temp {

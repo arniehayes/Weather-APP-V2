@@ -1,38 +1,44 @@
 import { useContext, useEffect } from "react";
 import { AddressContext } from "../pages/index";
 import style from "../styles/hourlyWeather.module.scss";
+import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
 
 const HourlyWeather = () => {
   const { hourlyForecast, alerts } = useContext(AddressContext);
 
   const newHourly = hourlyForecast.slice(0, 12);
   const date = new Date();
-  const hour = date
+  var hour = date
     .toLocaleString("en-US", {
       timeZone: "America/Los_Angeles",
       hour: "numeric",
       hour12: true,
     })
-    .replace(/AM|PM/, "");
-  const updatedHour = Number(hour);
+    .replace(/AM|PM/, "");;
+  var updatedHour = Number(hour);
+
+  const formatAMPM = () => {
+    var ampm = updatedHour >= 12 ? "pm" : "am";
+    return ampm;
+  };
 
   const time = [
     "Now",
-    updatedHour + 1,
-    updatedHour + 2,
-    updatedHour + 3,
-    updatedHour + 4,
-    updatedHour + 5,
-    updatedHour + 6,
-    updatedHour + 7,
-    updatedHour + 8,
-    updatedHour + 9,
-    updatedHour + 10,
-    updatedHour + 11,
+    String(updatedHour + 1) + formatAMPM(),
+    String(updatedHour + 2) + formatAMPM(),
+    String(updatedHour + 3) + formatAMPM(),
+    String(updatedHour + 4) + formatAMPM(),
+    String(updatedHour + 5) + formatAMPM(),
+    String(updatedHour + 6) + formatAMPM(),
+    String(updatedHour + 7) + formatAMPM(),
+    String(updatedHour + 8) + formatAMPM(),
+    String(updatedHour + 9) + formatAMPM(),
+    String(updatedHour + 10) + formatAMPM(),
+    String(updatedHour + 11) + formatAMPM(),
   ];
 
   const zipped = time.map((x, i) => [x, newHourly[i]]);
-  console.log("zip: ", zipped);
+  console.log("zipped: ", zipped)
 
   useEffect(() => {
     console.log("hourly: ", hourlyForecast);
@@ -42,6 +48,14 @@ const HourlyWeather = () => {
   return (
     <div className={style["hourly-weather__container"]}>
       <div className={style["hourly-weather__list-container"]}>
+        <div className={style["hourly-weather__title"]}>
+          <DateRangeRoundedIcon
+            className={style["hourly-weather__title--icon"]}
+          />
+          <p className={style["hourly-weather__title--name"]}>
+            Hourly Forecast
+          </p>
+        </div>
         <ul className={style["hourly-weather__list--ul"]}>
           {hourlyForecast.length > 0 &&
             zipped.map((item, key) => (
@@ -49,6 +63,11 @@ const HourlyWeather = () => {
                 <p className={style["hourly-weather__list--li-time"]}>
                   {item[0]}
                 </p>
+                <img
+                  src={item[1].weather[0].icon + "@2x.png"}
+                  alt="weather-icon"
+                  className={style["hourly-weather__list--li-icon"]}
+                />
                 <p className={style["hourly-weather__list--li-temp"]}>
                   {Math.trunc(item[1].temp)}
                 </p>
