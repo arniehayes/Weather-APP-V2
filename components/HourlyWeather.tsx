@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { AddressContext } from "../pages/index";
 import style from "../styles/hourlyWeather.module.scss";
 import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
+import Image from "next/image";
 
 const HourlyWeather = () => {
   const { hourlyForecast, alerts } = useContext(AddressContext);
@@ -15,35 +16,29 @@ const HourlyWeather = () => {
       hour12: true,
     })
     .replace(/AM|PM/, "");;
-  var updatedHour = Number(hour);
+  var currentHour = Number(hour);
 
-  const formatAMPM = () => {
-    var ampm = updatedHour >= 12 ? "pm" : "am";
-    return ampm;
-  };
+  const updatedTime = ["Now"];
 
-  const time = [
-    "Now",
-    String(updatedHour + 1) + formatAMPM(),
-    String(updatedHour + 2) + formatAMPM(),
-    String(updatedHour + 3) + formatAMPM(),
-    String(updatedHour + 4) + formatAMPM(),
-    String(updatedHour + 5) + formatAMPM(),
-    String(updatedHour + 6) + formatAMPM(),
-    String(updatedHour + 7) + formatAMPM(),
-    String(updatedHour + 8) + formatAMPM(),
-    String(updatedHour + 9) + formatAMPM(),
-    String(updatedHour + 10) + formatAMPM(),
-    String(updatedHour + 11) + formatAMPM(),
-  ];
+  // This function takes in the current time and gets the next 12 hours
+  const getTime = (currentHour) => {
+    var time = currentHour;
+    // adding +1 to the current hour for 12 hours
+    for (let i = 1; i < 12; i++) {
+      time += i;
+      if (time > 12) {
+        time -= 12;
+        updatedTime.push(time);
+      }
+      else
+        updatedTime.push(time);
+      // resetting the time each iteration
+      time = currentHour;
+    }
+  }
+  getTime(currentHour);
 
-  const zipped = time.map((x, i) => [x, newHourly[i]]);
-  console.log("zipped: ", zipped)
-
-  useEffect(() => {
-    console.log("hourly: ", hourlyForecast);
-    console.log("alerts", alerts);
-  }, [hourlyForecast, alerts]);
+  const zipped = updatedTime.map((x, i) => [x, newHourly[i]]);
 
   return (
     <div className={style["hourly-weather__container"]}>
@@ -55,6 +50,9 @@ const HourlyWeather = () => {
           <p className={style["hourly-weather__title--name"]}>
             Hourly Forecast
           </p>
+        </div>
+        <div className={style["hourly-weather__spacer-container"]}>
+          <hr className={style["hourly-weather__spacer-container--hr"]} />
         </div>
         <ul className={style["hourly-weather__list--ul"]}>
           {hourlyForecast.length > 0 &&

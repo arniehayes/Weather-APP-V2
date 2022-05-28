@@ -16,8 +16,8 @@ export default function Home() {
   }
 
   interface Weekly {
-    weekDay: string;
-    temp: number;
+    tempMin: number;
+    tempMax: number;
     conditionIcon: string;
   }
 
@@ -42,7 +42,7 @@ export default function Home() {
 
   //  API states
   const [dailyForecast, setDailyForecast] = useState<Daily>();
-  const [weeklyForecast, setWeeklyForecast] = useState<Weekly>();
+  const [weeklyForecast, setWeeklyForecast] = useState<Weekly[]>([]);
   const [hourlyForecast, setHourlyForecast] = useState<Hourly[]>([]);
   const [info, setInfo] = useState<WeatherInfo>();
   const [alerts, setAlerts] = useState<Alerts>();

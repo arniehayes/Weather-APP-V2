@@ -4,6 +4,7 @@ import { AddressContext } from "../pages/index";
 import CurrentWeather from "./CurrentWeather";
 import style from "../styles/body.module.scss";
 import HourlyWeather from "./HourlyWeather";
+import WeeklyWeather from "./WeeklyWeather";
 
 const Body = () => {
   const {
@@ -77,43 +78,7 @@ const Body = () => {
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY_V2}`
       )
       .then((res) => {
-        setWeeklyForecast([
-          {
-            weekDay: "sunday",
-            temp: res.data.daily[0].temp.day,
-            conditionIcon: res.data.daily[0].weather[0].icon,
-          },
-          {
-            weekDay: "monday",
-            temp: res.data.daily[1].temp.day,
-            conditionIcon: res.data.daily[1].weather[0].icon,
-          },
-          {
-            weekDay: "tuesday",
-            temp: res.data.daily[2].temp.day,
-            conditionIcon: res.data.daily[2].weather[0].icon,
-          },
-          {
-            weekDay: "wednesday",
-            temp: res.data.daily[3].temp.day,
-            conditionIcon: res.data.daily[3].weather[0].icon,
-          },
-          {
-            weekDay: "thursday",
-            temp: res.data.daily[4].temp.day,
-            conditionIcon: res.data.daily[4].weather[0].icon,
-          },
-          {
-            weekDay: "friday",
-            temp: res.data.daily[5].temp.day,
-            conditionIcon: res.data.daily[5].weather[0].icon,
-          },
-          {
-            weekDay: "saturday",
-            temp: res.data.daily[6].temp.day,
-            conditionIcon: res.data.daily[6].weather[0].icon,
-          },
-        ]);
+        setWeeklyForecast(res.data.daily);
 
         setInfo(
           {
@@ -145,6 +110,7 @@ const Body = () => {
         <>
           <CurrentWeather />
           <HourlyWeather />
+          <WeeklyWeather />
         </>
       )}
     </section>
