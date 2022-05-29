@@ -57,8 +57,9 @@ const WeeklyWeather = () => {
                                     <span className={style["weekly-weather__content--day"]}>{weekDays[key]}</span>
                                     <img src={item.weather[0].icon + "@2x.png"}
                                         className={style["weekly-weather__content--icon"]} />
-                                    <span className={style["weekly-weather__content--minTemp"]}>{item.temp.min}</span>
-                                    <span className={style["weekly-weather__content--maxTemp"]}>{item.temp.max}</span>
+                                    <span className={style["weekly-weather__content--minTemp"]}>{Math.trunc(item.temp.min)}</span>
+                                    <span className={style["gradient-bar"]} />
+                                    <span className={style["weekly-weather__content--maxTemp"]}>{Math.trunc(item.temp.max)}</span>
                                 </div>
                             </li>
                         ))}

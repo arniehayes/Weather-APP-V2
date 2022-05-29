@@ -1,0 +1,72 @@
+@import "styles/__fontColors.scss";
+
+.weekly-weather__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+  color: $main-text-color;
+}
+
+.weekly-weather__list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 10%);
+  width: 100%;
+}
+
+.weekly-weather__list {
+  padding-left: 15px;
+  padding-right: 15px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.weekly-weather__list--item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.weekly-weather__list--item__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.weekly-weather__content--day {
+  width: 35px;
+}
+
+.weekly-weather__content--icon {
+  width: 50px;
+  height: auto;
+}
+
+.weekly-weather__content--minTemp {
+}
+
+.weekly-weather__content--maxTemp {
+}
+.gradient-bar {
+  width: 80px;
+  height: 3px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    rgba(133, 228, 56, 0.993),
+    rgb(236, 93, 27)
+  );
+}

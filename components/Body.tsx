@@ -5,6 +5,7 @@ import CurrentWeather from "./CurrentWeather";
 import style from "../styles/body.module.scss";
 import HourlyWeather from "./HourlyWeather";
 import WeeklyWeather from "./WeeklyWeather";
+import WeatherInfo from "./WeatherInfo";
 
 const Body = () => {
   const {
@@ -111,6 +112,7 @@ const Body = () => {
           <CurrentWeather />
           <HourlyWeather />
           <WeeklyWeather />
+          <WeatherInfo />
         </>
       )}
     </section>

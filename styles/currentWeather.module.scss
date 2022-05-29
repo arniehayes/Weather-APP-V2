@@ -1,8 +1,11 @@
+@import "styles/__fontColors.scss";
+
 .current-weather__container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    color: $main-text-color;
 }
 
 .current-weather__container--inner {

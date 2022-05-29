@@ -1,3 +1,5 @@
+@import "styles/__fontColors.scss";
+
 .hourly-weather__container {
   display: flex;
   justify-content: center;
@@ -15,6 +17,7 @@
   overflow-y: hidden;
   overflow-x: scroll;
   background-color: rgba(0, 0, 0, 10%);
+  color: $main-text-color;
 }
 
 .hourly-weather__title{
@@ -24,6 +27,7 @@
   width: 100%;
   padding-left: 15px;
   padding-top: 10px;
+  color: $title-text-color;
 }
 
 .hourly-weather__title--icon {
