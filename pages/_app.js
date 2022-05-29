@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
           rel="stylesheet"
         />
       </Head>

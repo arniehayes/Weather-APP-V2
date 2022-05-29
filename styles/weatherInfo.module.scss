@@ -8,6 +8,7 @@
   align-items: center;
   width: 100%;
   margin-bottom: 1rem;
+  font-family: $main-font;
 }
 
 .__container {
@@ -19,7 +20,7 @@
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 10%);
   width: 49%;
-  height: 130px;
+  height: 160px;
   margin-top: 1rem;
 }
 
@@ -30,14 +31,14 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100% ;
+  width: 100%;
   height: 100%;
 }
 
 .title__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
@@ -67,8 +68,31 @@
 }
 
 .icon {
+  width: 20px;
+  height: auto;
+  color: $icon-color;
+  padding-right: 5px;
+}
+
+.info-message {
+  font-size: 12px;
+  color: $main-text-color;
+}
+
+.wind-direction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $main-text-color;
+}
+
+.wind-arrow {
+  margin-left: 8px;
+  width: 20px;
+  height: auto;
+}
+
+.north-west {
     width: 20px;
-    height: auto;
-    color: $icon-color;
-    padding-right: 5px;
+  height: auto;
 }

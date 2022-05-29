@@ -6,6 +6,7 @@ import style from "../styles/body.module.scss";
 import HourlyWeather from "./HourlyWeather";
 import WeeklyWeather from "./WeeklyWeather";
 import WeatherInfo from "./WeatherInfo";
+import Footer from "./Footer";
 
 const Body = () => {
   const {
@@ -24,7 +25,6 @@ const Body = () => {
     setAlerts,
   } = useContext(AddressContext);
 
-  const API_KEY: string = "4c9c09da9dd01b0168f894bc925358bd";
   const API_KEY_V2: string = "53097cb2fae5a9644a976017e7d9515c";
 
   // use useEffect if you want to set a default location
@@ -35,11 +35,6 @@ const Body = () => {
     }
   }, [searchTerm, hasBeenSearched]);
 
-  useEffect(() => {
-    console.log("Daily Forecast:", dailyForecast);
-    console.log("Weekly Forecast: ", weeklyForecast);
-    console.log("Info: ", info);
-  }, [dailyForecast, weeklyForecast, info]);
 
   // Getting the Daily forecast and creating a custom hook
   const getDailyForecast = (searchTerm: any) => {
@@ -84,12 +79,14 @@ const Body = () => {
         setInfo(
           {
             uvIndex: res.data.current.uvi,
-            windStatus: res.data.current.wind_speed,
+            windSpeed: res.data.current.wind_speed,
+            windDegree: res.data.current.wind_deg,
             sunRise: res.data.current.sunrise,
             sunSet: res.data.current.sunset,
             humidity: res.data.current.humidity,
             visibility: res.data.current.visibility,
             feelsLike: res.data.current.feels_like,
+            actualTemp: res.data.current.temp
           },
         );
 
@@ -113,6 +110,7 @@ const Body = () => {
           <HourlyWeather />
           <WeeklyWeather />
           <WeatherInfo />
+          <Footer />
         </>
       )}
     </section>

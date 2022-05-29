@@ -2,11 +2,15 @@
 
 .weekly-weather__container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
   width: 100%;
   color: $main-text-color;
+  font-family: $main-font;
+  background-color: $background-color;
+  border-radius: 10px;
 }
 
 .weekly-weather__list-container {
@@ -14,10 +18,31 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 10%);
   width: 100%;
 }
+
+.hourly-weather__title-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-left: 15px;
+  padding-top: 10px;
+  color: $title-text-color;
+}
+
+.hourly-weather__title--icon {
+  width: 18px;
+  height: auto;
+  color: lightgray;
+  padding-right: 5px;
+}
+
+.hourly-weather__title--name{
+  font-size: 15px;
+  color: rgb(177, 177, 177);
+  margin: 0;
+} 
 
 .weekly-weather__list {
   padding-left: 15px;
@@ -69,4 +94,17 @@
     rgba(133, 228, 56, 0.993),
     rgb(236, 93, 27)
   );
+}
+
+.hourly-weather__spacer-container {
+  display: flex;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.hourly-weather__spacer-container--hr {
+  width: 100%; 
+  overflow-y: hidden;
+  overflow-x: hidden;
 }

@@ -1,9 +1,12 @@
+@import "styles/__fontColors.scss";
+
 .search__container {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: $main-font;
 }
 .search__input-container {
     position: relative;

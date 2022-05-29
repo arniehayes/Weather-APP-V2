@@ -24,12 +24,13 @@ export default function Home() {
   interface WeatherInfo {
     uvIndex: number;
     windStatus: number;
+    windDegree: number;
     sunRise: number;
     sunSet: number;
     humidity: number;
     visibility: number;
     feelsLike: number;
-    pressure: number;
+    actualTemp: number;
   }
 
   interface Hourly {

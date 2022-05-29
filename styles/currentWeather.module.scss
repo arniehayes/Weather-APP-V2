@@ -9,7 +9,8 @@
 }
 
 .current-weather__container--inner {
-    font-family: 'Roboto Mono', monospace;
+    // font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,5 +50,6 @@
     &:after {
         position: absolute;
         content: "°";
+        font-size: 22px;
     }
 }
