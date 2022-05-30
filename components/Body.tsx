@@ -31,7 +31,7 @@ const Body = () => {
 
   useEffect(() => {
     getDailyForecast("New York");
-  })
+  },[])
 
 
   useEffect(() => {

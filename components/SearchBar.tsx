@@ -34,7 +34,7 @@ const SearchBar = () => {
             className={style["search__input-container--button"]}
             variant="text"
             size="small"
-            >
+          >
             <SearchIcon />
           </Button>
         </div>
