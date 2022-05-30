@@ -9,7 +9,9 @@ const CurrentWeather = () => {
       temp: Math.trunc(dailyForecast[0].temp),
       maxTemp: "H:" + Math.trunc(dailyForecast[0].maxTemp),
       minTemp: "L:" + Math.trunc(dailyForecast[0].minTemp)
-    };
+  };
+  
+  
 
     return (
       <div className={style["current-weather__container"]}>

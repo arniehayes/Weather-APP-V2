@@ -8,7 +8,8 @@ body {
   height: auto;
   min-height: 100vh;
   scroll-behavior: smooth;
-  background: linear-gradient(to top, #e9b787 0%, #676dc7 100%);
+  background: linear-gradient(to top, rgb(240, 198, 82) 0%, rgb(65, 150, 199) 100%);
+  background-size: auto;
 }
 
 a {
