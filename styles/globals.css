@@ -8,7 +8,7 @@ body {
   height: auto;
   min-height: 100vh;
   scroll-behavior: smooth;
-background: rgb(40,40,46);
+  background: rgb(50,123,204);
 }
 
 a {
