@@ -26,12 +26,14 @@ const Body = () => {
   } = useContext(AddressContext);
 
   const API_KEY_V2: string = "53097cb2fae5a9644a976017e7d9515c";
+  const API: string = "f80fb2397dd06fd9cda1db4aa5af80d9";
+  const API2: string = "51eb35ee7c87be72d2d9b08001a03d35";
 
   // use useEffect if you want to set a default location
 
-  useEffect(() => {
-    getDailyForecast("New York");
-  },[])
+  // useEffect(() => {
+  //   getDailyForecast("New York");
+  // },[])
 
 
   useEffect(() => {
@@ -46,7 +48,7 @@ const Body = () => {
   const getDailyForecast = (searchTerm: any) => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=imperial&appid=${API_KEY_V2}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=imperial&appid=${API}`
       )
       .then((response) => {
         // Getting current weather
@@ -77,33 +79,28 @@ const Body = () => {
   const getWeeklyForecast = (lat: number, lon: number) => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY_V2}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${API}`
       )
       .then((res) => {
         setWeeklyForecast(res.data.daily);
 
-        setInfo(
-          {
-            uvIndex: res.data.current.uvi,
-            windSpeed: res.data.current.wind_speed,
-            windDegree: res.data.current.wind_deg,
-            sunRise: res.data.current.sunrise,
-            sunSet: res.data.current.sunset,
-            humidity: res.data.current.humidity,
-            visibility: res.data.current.visibility,
-            feelsLike: res.data.current.feels_like,
-            actualTemp: res.data.current.temp
-          },
-        );
+        setInfo({
+          uvIndex: res.data.current.uvi,
+          windSpeed: res.data.current.wind_speed,
+          windDegree: res.data.current.wind_deg,
+          sunRise: res.data.current.sunrise,
+          sunSet: res.data.current.sunset,
+          humidity: res.data.current.humidity,
+          visibility: res.data.current.visibility,
+          feelsLike: res.data.current.feels_like,
+          actualTemp: res.data.current.temp,
+        });
 
         setHourlyForecast(res.data.hourly);
 
-        setAlerts(
-          {
-            alert: res.data.alerts[0].event
-          }
-        );
-
+        setAlerts({
+          alert: res.data.alerts[0].event,
+        });
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
