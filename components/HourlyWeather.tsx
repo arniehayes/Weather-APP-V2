@@ -3,7 +3,6 @@ import { AddressContext } from "../pages/index";
 import style from "../styles/hourlyWeather.module.scss";
 import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
 
-
 const HourlyWeather = () => {
   const { hourlyForecast, alerts } = useContext(AddressContext);
 
@@ -15,7 +14,7 @@ const HourlyWeather = () => {
       hour: "numeric",
       hour12: true,
     })
-    .replace(/AM|PM/, "");;
+    .replace(/AM|PM/, "");
   var currentHour = Number(hour);
 
   const updatedTime = ["Now"];
@@ -29,13 +28,11 @@ const HourlyWeather = () => {
       if (time > 12) {
         time -= 12;
         updatedTime.push(time);
-      }
-      else
-        updatedTime.push(time);
+      } else updatedTime.push(time);
       // resetting the time each iteration
       time = currentHour;
     }
-  }
+  };
   getTime(currentHour);
 
   const zipped = updatedTime.map((x, i) => [x, newHourly[i]]);

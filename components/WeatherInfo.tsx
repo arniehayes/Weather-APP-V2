@@ -79,6 +79,7 @@ const WeatherInfo = () => {
     else if (windDegree === 0) return "";
   };
 
+
   const getHumidity = (humidity: number) => {
     if (humidity >= 40 && humidity <= 60) return "Healthy";
     else if (humidity < 40) return "Dry";

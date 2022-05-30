@@ -1,9 +1,11 @@
 import '../styles/globals.css'
 import Head from 'next/head'
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
+
   return (
-    <>
+    <div id="body">
       <Head>
         <meta
           name="viewport"
@@ -19,7 +21,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
-    </>
+    </div>
   );
 }
 

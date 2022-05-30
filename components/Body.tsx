@@ -102,8 +102,10 @@ const Body = () => {
       .catch((error) => console.error(`Error: ${error}`));
   };
 
+
+
   return (
-    <section className={style["body"]}>
+    <section className={style["body"]} >
       {dailyForecast && (
         <>
           <CurrentWeather />

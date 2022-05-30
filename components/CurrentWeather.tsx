@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AddressContext } from "../pages/index";
 import style from "../styles/currentWeather.module.scss";
 
@@ -11,7 +11,15 @@ const CurrentWeather = () => {
       minTemp: "L:" + Math.trunc(dailyForecast[0].minTemp)
   };
   
-  
+  useEffect(() => {
+    const nightBG = document.getElementById("body");
+    if (truncatedValues.temp < 60) {
+      nightBG.style.background = "linear-gradient(180deg, rgba(40,40,46,1) 12%, rgba(65,63,115,1) 80%)";
+    }
+    else {
+      nightBG.style.background = "linear-gradient(180deg, rgb(81, 138, 204) 12%, rgba(219,199,164,1) 80%)";
+    }
+  },);
 
     return (
       <div className={style["current-weather__container"]}>
