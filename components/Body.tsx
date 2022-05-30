@@ -31,9 +31,9 @@ const Body = () => {
 
   // use useEffect if you want to set a default location
 
-  // useEffect(() => {
-  //   getDailyForecast("New York");
-  // },[])
+  useEffect(() => {
+    getDailyForecast("New York");
+  },[])
 
 
   useEffect(() => {

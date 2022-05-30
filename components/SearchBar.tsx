@@ -21,7 +21,7 @@ const SearchBar = () => {
           <input
             type="text"
             onChange={handleInput}
-            placeholder="City Name"
+            placeholder="Zip Code"
             className={style["search__input-container__input"]}
             name={searchTerm}
           ></input>
