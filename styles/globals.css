@@ -8,6 +8,7 @@ body {
   height: auto;
   min-height: 100vh;
   scroll-behavior: smooth;
+  background: transparent;
 }
 
 a {
