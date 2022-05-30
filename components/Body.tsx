@@ -28,6 +28,12 @@ const Body = () => {
   const API_KEY_V2: string = "53097cb2fae5a9644a976017e7d9515c";
 
   // use useEffect if you want to set a default location
+
+  useEffect(() => {
+    getDailyForecast("New York");
+  })
+
+
   useEffect(() => {
     if (searchTerm && hasBeenSearched) {
       getDailyForecast(searchTerm);
