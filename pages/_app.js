@@ -13,8 +13,13 @@ function MyApp({ Component, pageProps }) {
         />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="theme-color"
+              content="#518acc"
+              media="(prefers-color-scheme: light)" />
+              <meta name="theme-color"
+              content="#518acc"
+              media="(prefers-color-scheme: dark)" />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
           rel="stylesheet"
