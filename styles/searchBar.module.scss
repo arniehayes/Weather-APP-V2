@@ -10,6 +10,9 @@
 }
 .search__input-container {
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 90%;
     margin: 2rem;
 }
@@ -25,4 +28,5 @@
     position: absolute !important;
     right: 0;
     top: 0;
+    padding-top: 8px;
 }
