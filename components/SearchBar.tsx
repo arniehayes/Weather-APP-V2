@@ -18,28 +18,30 @@ const SearchBar = () => {
     return (
       <div className={style["search__container"]}>
         <div className={style["search__input-container"]}>
-          <input
-            type="text"
-            onChange={handleInput}
-            placeholder="Zip Code"
-            className={style["search__input-container__input"]}
-            name={searchTerm}
-            // this clears the search bar after something has been searched
-            value={searchTerm}
-            enterKeyHint="done"
-          ></input>
-          <Button
-            onClick={() => {
-              setHasBeenSearched(true);
-            }}
-            id="search_button"
-            type="submit"
-            className={style["search__input-container--button"]}
-            variant="text"
-            size="small"
-          >
-            <SearchIcon />
-          </Button>
+          <form onSubmit={(e) => e.preventDefault()} className={style["form"]}>
+            <input
+              type="text"
+              onChange={handleInput}
+              placeholder="Zip Code"
+              className={style["search__input-container__input"]}
+              name={searchTerm}
+              // this clears the search bar after something has been searched
+              value={searchTerm}
+              enterKeyHint="done"
+            ></input>
+            <Button
+              onClick={() => {
+                setHasBeenSearched(true);
+              }}
+              id="search_button"
+              type="submit"
+              className={style["search__input-container--button"]}
+              variant="text"
+              size="small"
+            >
+              <SearchIcon />
+            </Button>
+          </form>
         </div>
         {/* this will call your api whatever the input value is */}
       </div>
