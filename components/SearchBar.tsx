@@ -26,7 +26,7 @@ const SearchBar = () => {
             name={searchTerm}
             // this clears the search bar after something has been searched
             value={searchTerm}
-            enterKeyHint="return"
+            enterKeyHint="go"
           ></input>
           <Button
             onClick={() => {
