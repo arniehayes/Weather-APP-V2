@@ -24,6 +24,9 @@ const SearchBar = () => {
             placeholder="Zip Code"
             className={style["search__input-container__input"]}
             name={searchTerm}
+            // this clears the search bar after something has been searched
+            value={searchTerm}
+            enterKeyHint="enter"
           ></input>
           <Button
             onClick={() => {
