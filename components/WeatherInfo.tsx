@@ -10,12 +10,13 @@ import ArrowUpwardRoundedIcon from "@mui/icons-material/ArrowUpwardRounded";
 const WeatherInfo = () => {
   const { info } = useContext(AddressContext);
 
-  const getQuality = (UV: number) => {
+  const getUVQuality = (UV: number) => {
     if (UV <= 2) return "Low";
     else if (UV >= 3 && UV <= 5) return "Moderate";
     else if (UV >= 6 && UV <= 7) return "High";
     else if (UV > 7) return "Very High";
   };
+
 
   const getSunrise = (sunRise: number) => {
     const time = new Date(sunRise * 1000).toLocaleTimeString("en-US", {
@@ -24,6 +25,7 @@ const WeatherInfo = () => {
     });
     return String(time).slice(0, 4) + " AM";
   };
+
   const getSunset = (sunSet: number) => {
     const time = new Date(sunSet * 1000).toLocaleTimeString("en-US", {
       timeZone: "America/Los_Angeles",
@@ -36,7 +38,7 @@ const WeatherInfo = () => {
     return Math.trunc(visibility * 0.000621371192237);
   };
 
-  const visibilityInfo = (visibility: number) => {
+  const getVisibilityInfo = (visibility: number) => {
     if (visibility <= 3) return "poor";
     else if (visibility <= 5 && visibility > 3) return "foggy";
     else return "clear";
@@ -106,11 +108,11 @@ const WeatherInfo = () => {
             {info && Math.trunc(info.uvIndex)}
           </span>
           <span className={style["uv-index--quality"]}>
-            {info && getQuality(info.uvIndex)}
+            {info && getUVQuality(info.uvIndex)}
           </span>
           <span className={style["slider"]} />
           <span className={style["info-message"]}>
-            {info && info.uvIndex >= 6 ? "Use sun protection until 6pm." : ""}
+            {info && info.uvIndex >= 6 ? "Use sun protection until 6pm." : "Use sun protection until 3pm."}
           </span>
         </div>
       </div>
@@ -149,7 +151,11 @@ const WeatherInfo = () => {
             <span className={style["number"]}>
               {info && getWindDirection(info.windDegree)}
             </span>
-            <img src="arrow.png" className={`${style["wind-arrow"]}`} id="arrow" />
+            <img
+              src="arrow.png"
+              className={`${style["wind-arrow"]}`}
+              id="arrow"
+            />
           </div>
         </div>
       </div>
@@ -183,7 +189,7 @@ const WeatherInfo = () => {
           <span className={style["info-message"]}>
             {info &&
               "It's " +
-                visibilityInfo(getVisibility(info.visibilty)) +
+                getVisibilityInfo(getVisibility(info.visibilty)) +
                 " right now."}
           </span>
         </div>
