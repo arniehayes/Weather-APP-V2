@@ -8,7 +8,8 @@ body {
   height: auto;
   min-height: 100vh !important;
   scroll-behavior: smooth;
-  background-image: linear-gradient(180deg, rgb(81, 138, 204) 12%, rgba(219,199,164,1) 80%);
+  /* background-image: linear-gradient(180deg, rgb(81, 138, 204) 12%, rgba(219,199,164,1) 80%); */
+  background-image: url(/public/blurred-abstract-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
