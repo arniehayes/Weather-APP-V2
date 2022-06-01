@@ -48,6 +48,7 @@ export default function Home() {
   const [info, setInfo] = useState<WeatherInfo>();
   const [alerts, setAlerts] = useState<Alerts>();
 
+
   // State fir holding if something has been searched
   const [hasBeenSearched, setHasBeenSearched] = useState<boolean>(false);
 

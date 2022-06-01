@@ -3,7 +3,7 @@ import { AddressContext } from "../pages/index";
 import style from "../styles/currentWeather.module.scss";
 
 const CurrentWeather = () => {
-    const { dailyForecast } = useContext(AddressContext);
+    const { dailyForecast, setBg } = useContext(AddressContext);
 
     const truncatedValues = {
       temp: Math.trunc(dailyForecast[0].temp),
@@ -11,15 +11,15 @@ const CurrentWeather = () => {
       minTemp: "L:" + Math.trunc(dailyForecast[0].minTemp)
   };
   
-  // useEffect(() => {
-  //   const nightBG = document.getElementById("__next");
-  //   if (truncatedValues.temp < 60) {
-  //     nightBG.style.background = "linear-gradient(180deg, rgba(40,40,46,1) 12%, rgba(65,63,115,1) 80%)";
-  //   }
-  //   else {
-  //     nightBG.style.background = "linear-gradient(180deg, rgb(81, 138, 204) 12%, rgba(219,199,164,1) 80%)";
-  //   }
-  // },);
+  useEffect(() => {
+    const nightBG = document.getElementById("__next");
+    if (truncatedValues.temp < 60) {
+      nightBG.style.background = "linear-gradient(180deg, #28282e 12%, #413f73 80%)";
+    }
+    else {
+      nightBG.style.background = "linear-gradient(180deg, #518acc 12%, #dbc7a4 80%)";
+    }
+  },[]);
 
     return (
       <div className={style["current-weather__container"]}>
