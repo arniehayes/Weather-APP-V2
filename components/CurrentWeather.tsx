@@ -13,7 +13,7 @@ const CurrentWeather = () => {
   
   useEffect(() => {
     const nightBG = document.getElementById("__next");
-    if (truncatedValues.temp < 60) {
+    if (truncatedValues.temp <= 60) {
       nightBG.style.background = "linear-gradient(180deg, #28282e 12%, #413f73 80%)";
     }
     else {
