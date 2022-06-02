@@ -101,7 +101,11 @@ const WeatherInfo = () => {
       <div className={style["__container"]}>
         <div className={style["__inner"]}>
           <div className={style["title__container"]}>
-            <LightModeRoundedIcon className={style["icon"]} />
+            <LightModeRoundedIcon
+              className={style["icon"]}
+              width={20}
+              height={20}
+            />
             <span className={style["title"]}>UV INDEX</span>
           </div>
           <span className={style["number"]}>
@@ -155,7 +159,7 @@ const WeatherInfo = () => {
       <div className={style["__container"]}>
         <div className={style["__inner"]}>
           <div className={style["title__container"]}>
-            <AirIcon className={style["icon"]} />
+            <AirIcon className={style["icon"]} width={20} height={20} />
             <span className={style["title"]}>WIND</span>
           </div>
           <span className={style["number"]}>
@@ -203,7 +207,7 @@ const WeatherInfo = () => {
       <div className={style["__container"]}>
         <div className={style["__inner"]}>
           <div className={style["title__container"]}>
-            <VisibilityIcon className={style["icon"]} />
+            <VisibilityIcon className={style["icon"]} width={20} height={20} />
             <span className={style["title"]}>VISIBILITY</span>
           </div>
           <span className={style["number"]}>
@@ -222,7 +226,7 @@ const WeatherInfo = () => {
       <div className={style["__container"]}>
         <div className={style["__inner"]}>
           <div className={style["title__container"]}>
-            <ThermostatIcon className={style["icon"]} />
+            <ThermostatIcon className={style["icon"]} width={20} height={20} />
             <span className={style["title"]}>FEELS LIKE</span>
           </div>
           <span className={style["number"]}>

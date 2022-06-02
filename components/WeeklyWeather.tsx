@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AddressContext } from "../pages/index";
 import style from "../styles/weeklyWeather.module.scss";
 import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
+import Image from "next/image";
 
 const WeeklyWeather = () => {
   //DAYS
@@ -49,6 +50,8 @@ const WeeklyWeather = () => {
       <div className={style["hourly-weather__title-container"]}>
         <DateRangeRoundedIcon
           className={style["hourly-weather__title--icon"]}
+          width={18}
+          height={18}
         />
         <p className={style["hourly-weather__title--name"]}> 8-Day Forecast</p>
       </div>
@@ -64,9 +67,12 @@ const WeeklyWeather = () => {
                   <span className={style["weekly-weather__content--day"]}>
                     {weekDays[key]}
                   </span>
-                  <img
-                    src={item.weather[0].icon + "@2x.png"}
+                  <Image
+                    src={"/" + item.weather[0].icon + "@2x.png"}
                     className={style["weekly-weather__content--icon"]}
+                    alt="weekly forecast icons"
+                    width={50}
+                    height={50}
                   />
                   <span className={style["weekly-weather__content--minTemp"]}>
                     {Math.trunc(item.temp.min) + "°"}

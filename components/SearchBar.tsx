@@ -39,7 +39,7 @@ const SearchBar = () => {
               variant="text"
               size="small"
             >
-              <SearchIcon />
+              <SearchIcon width={20} height={20}/>
             </Button>
           </form>
         </div>

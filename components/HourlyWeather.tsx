@@ -45,6 +45,8 @@ const HourlyWeather = () => {
         <div className={style["hourly-weather__title-container"]}>
           <DateRangeRoundedIcon
             className={style["hourly-weather__title--icon"]}
+            width={18}
+            height={18}
           />
           <p className={style["hourly-weather__title--name"]}>
             Hourly Forecast
