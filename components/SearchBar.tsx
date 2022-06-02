@@ -17,6 +17,7 @@ const SearchBar = () => {
   
   // TODO :
   // Add error handling for bad inputs
+  // Add some animations
 
     return (
       <div className={style["search__container"]}>
