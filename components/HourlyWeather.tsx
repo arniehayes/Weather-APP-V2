@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { AddressContext } from "../pages/index";
 import style from "../styles/hourlyWeather.module.scss";
 import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
+import Image from "next/image";
 
 const HourlyWeather = () => {
   const { hourlyForecast, alerts } = useContext(AddressContext);
@@ -35,6 +36,7 @@ const HourlyWeather = () => {
   };
   getTime(currentHour);
 
+
   const zipped = updatedTime.map((x, i) => [x, newHourly[i]]);
 
   return (
@@ -58,10 +60,12 @@ const HourlyWeather = () => {
                 <p className={style["hourly-weather__list--li-time"]}>
                   {item[0]}
                 </p>
-                <img
-                  src={item[1].weather[0].icon + "@2x.png"}
+                <Image
+                  src={"/" + item[1].weather[0].icon + "@2x.png"}
                   alt="weather-icon"
                   className={style["hourly-weather__list--li-icon"]}
+                  layout="fill"
+                  style={{ width: '50px', height: 'auto'}}
                 />
                 <p className={style["hourly-weather__list--li-temp"]}>
                   {Math.trunc(item[1].temp)}
