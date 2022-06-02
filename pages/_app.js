@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta name="theme-color" content="##242222" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-transparent" />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
           rel="stylesheet"
