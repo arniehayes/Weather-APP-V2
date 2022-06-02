@@ -13,7 +13,10 @@ const SearchBar = () => {
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
         setSearchTerm(e.target.value);
-    };
+  };
+  
+  // TODO :
+  // Add error handling for bad inputs
 
     return (
       <div className={style["search__container"]}>
