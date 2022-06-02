@@ -15,14 +15,24 @@
   justify-content: center;
   align-items: flex-start;
   border-radius: 10px;
-  overflow-y: hidden;
-  overflow-x: scroll;
   background-color: $background-color;
   color: $main-text-color;
   position: relative;
+  width: 100%;
 }
 
-.hourly-weather__title-container{
+.list-scroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: hidden;
+  overflow-x: scroll;
+    position: relative;
+    width: 100%;
+}
+
+.hourly-weather__title-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -39,11 +49,11 @@
   padding-right: 5px;
 }
 
-.hourly-weather__title--name{
+.hourly-weather__title--name {
   font-size: 15px;
   color: rgb(177, 177, 177);
   margin: 0;
-} 
+}
 
 .hourly-weather__list {
   padding: 5px;
@@ -54,11 +64,11 @@
 }
 
 .hourly-weather__list--li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 18px 5px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 18px 5px 5px;
 }
 
 .hourly-weather__list--li-time {
@@ -93,22 +103,22 @@
 }
 
 .hourly-weather__spacer-container--hr {
-  width: 100%; 
+  width: 100%;
   overflow-y: hidden;
   overflow-x: hidden;
 }
 
 @media only screen and (min-width: 925px) {
   .hourly-weather__list-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  border-radius: 10px;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  background-color: $background-color;
-  color: $main-text-color;
-  position: relative;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 10px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-color: $background-color;
+    color: $main-text-color;
+    position: relative;
+  }
 }

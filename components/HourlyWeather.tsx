@@ -55,26 +55,28 @@ const HourlyWeather = () => {
         <div className={style["hourly-weather__spacer-container"]}>
           <hr className={style["hourly-weather__spacer-container--hr"]} />
         </div>
-        <ul className={style["hourly-weather__list"]}>
-          {hourlyForecast.length > 0 &&
-            zipped.map((item, key) => (
-              <li key={key} className={style["hourly-weather__list--li"]}>
-                <p className={style["hourly-weather__list--li-time"]}>
-                  {item[0]}
-                </p>
-                <Image
-                  src={"/" + item[1].weather[0].icon + "@2x.png"}
-                  alt="weather-icon"
-                  className={style["hourly-weather__list--li-icon"]}
-                  width={50}
-                  height={50}
-                />
-                <p className={style["hourly-weather__list--li-temp"]}>
-                  {Math.trunc(item[1].temp)}
-                </p>
-              </li>
-            ))}
-        </ul>
+        <div className={style["list-scroll"]}>
+          <ul className={style["hourly-weather__list"]}>
+            {hourlyForecast.length > 0 &&
+              zipped.map((item, key) => (
+                <li key={key} className={style["hourly-weather__list--li"]}>
+                  <p className={style["hourly-weather__list--li-time"]}>
+                    {item[0]}
+                  </p>
+                  <Image
+                    src={"/" + item[1].weather[0].icon + "@2x.png"}
+                    alt="weather-icon"
+                    className={style["hourly-weather__list--li-icon"]}
+                    width={50}
+                    height={50}
+                  />
+                  <p className={style["hourly-weather__list--li-temp"]}>
+                    {Math.trunc(item[1].temp)}
+                  </p>
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
