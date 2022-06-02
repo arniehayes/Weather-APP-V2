@@ -10,10 +10,7 @@ function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0, viewport-fit=cover"
         />
-        <meta
-          name="theme-color"
-          content="linear-gradient(270deg, #518acc 12%, #dbc7a4 80%)"
-        />
+        <meta name="theme-color" content="##242222" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <link
