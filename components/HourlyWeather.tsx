@@ -64,8 +64,8 @@ const HourlyWeather = () => {
                   src={"/" + item[1].weather[0].icon + "@2x.png"}
                   alt="weather-icon"
                   className={style["hourly-weather__list--li-icon"]}
-                  layout="fill"
-                  style={{ width: '50px', height: 'auto'}}
+                  width={50}
+                  height={50}
                 />
                 <p className={style["hourly-weather__list--li-temp"]}>
                   {Math.trunc(item[1].temp)}

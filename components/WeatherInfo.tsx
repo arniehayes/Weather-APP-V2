@@ -5,7 +5,7 @@ import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import AirIcon from "@mui/icons-material/Air";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
-import ArrowUpwardRoundedIcon from "@mui/icons-material/ArrowUpwardRounded";
+import Image from "next/image";
 
 const WeatherInfo = () => {
   const { info } = useContext(AddressContext);
@@ -112,7 +112,9 @@ const WeatherInfo = () => {
           </span>
           <span className={style["slider"]} />
           <span className={style["info-message"]}>
-            {info && info.uvIndex >= 6 ? "Use sun protection until 6pm." : "Use sun protection until 3pm."}
+            {info && info.uvIndex >= 6
+              ? "Use sun protection until 6pm."
+              : "Use sun protection until 3pm."}
           </span>
         </div>
       </div>
@@ -121,14 +123,26 @@ const WeatherInfo = () => {
       <div className={style["__container"]}>
         <div className={style["__inner"]}>
           <div className={style["title__container"]}>
-            <img src="sunrise.png" className={style["icon"]} />
+            <Image
+              src="/sunrise.png"
+              className={style["icon"]}
+              alt="sunrise"
+              width={20}
+              height={20}
+            />
             <span className={style["title"]}>SUNRISE</span>
           </div>
           <span className={style["number"]}>
             {info && getSunrise(info.sunRise)}
           </span>
           <div className={style["title__container"]}>
-            <img src="sunset.png" className={style["icon"]} />
+            <Image
+              src="/sunset.png"
+              className={style["icon"]}
+              alt="sunset"
+              width={20}
+              height={20}
+            />
             <span className={style["title"]}>SUNSET</span>
           </div>
           <span className={style["number"]}>
@@ -151,10 +165,13 @@ const WeatherInfo = () => {
             <span className={style["number"]}>
               {info && getWindDirection(info.windDegree)}
             </span>
-            <img
-              src="arrow.png"
+            <Image
+              src="/arrow.png"
               className={`${style["wind-arrow"]}`}
               id="arrow"
+              alt="arrow"
+              width={20}
+              height={20}
             />
           </div>
         </div>
@@ -164,7 +181,13 @@ const WeatherInfo = () => {
       <div className={style["__container"]}>
         <div className={style["__inner"]}>
           <div className={style["title__container"]}>
-            <img src="humidity.png" className={style["icon"]} />
+            <Image
+              src="/humidity.png"
+              className={style["icon"]}
+              alt="humidity"
+              width={20}
+              height={20}
+            />
             <span className={style["title"]}>HUMIDITY</span>
           </div>
           <span className={style["number"]}>
