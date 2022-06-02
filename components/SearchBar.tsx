@@ -22,7 +22,7 @@ const SearchBar = () => {
             <input
               type="text"
               onChange={handleInput}
-              placeholder="Zip Code"
+              placeholder="City, Country"
               className={style["search__input-container__input"]}
               name={searchTerm}
               // this clears the search bar after something has been searched
