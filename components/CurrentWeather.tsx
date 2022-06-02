@@ -19,7 +19,7 @@ const CurrentWeather = () => {
     else {
       nightBG.style.background = "linear-gradient(180deg, #518acc 12%, #dbc7a4 80%)";
     }
-  },[]);
+  });
 
     return (
       <div className={style["current-weather__container"]}>
