@@ -5,7 +5,7 @@ import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
 import Image from "next/image";
 
 const HourlyWeather = () => {
-  const { hourlyForecast, alerts } = useContext(AddressContext);
+  const { hourlyForecast } = useContext(AddressContext);
 
   const newHourly = hourlyForecast.slice(0, 12);
   const date = new Date();
@@ -24,7 +24,7 @@ const HourlyWeather = () => {
   const getTime = (currentHour) => {
     var time = currentHour;
     // adding +1 to the current hour for 12 hours
-    for (let i = 1; i < 13; i++) {
+    for (let i = 1; i < 12; i++) {
       time += i;
       if (time > 12) {
         time -= 12;
@@ -63,16 +63,20 @@ const HourlyWeather = () => {
                   <p className={style["hourly-weather__list--li-time"]}>
                     {item[0]}
                   </p>
-                  <Image
-                    src={"/" + item[1].weather[0].icon + "@2x.png"}
-                    alt="weather-icon"
-                    className={style["hourly-weather__list--li-icon"]}
-                    width={50}
-                    height={50}
-                  />
-                  <p className={style["hourly-weather__list--li-temp"]}>
-                    {Math.trunc(item[1].temp)}
-                  </p>
+                  {hourlyForecast && hourlyForecast.length > 0 &&
+                    <Image
+                      src={"/" + item[1].weather[0].icon + "@2x.png"}
+                      alt="weather-icon"
+                      className={style["hourly-weather__list--li-icon"]}
+                      width={50}
+                      height={50}
+                    />
+                  }
+                  {hourlyForecast && hourlyForecast.length > 0 &&
+                    <p className={style["hourly-weather__list--li-temp"]}>
+                      {Math.trunc(item[1].temp)}
+                    </p>
+                  }
                 </li>
               ))}
           </ul>
