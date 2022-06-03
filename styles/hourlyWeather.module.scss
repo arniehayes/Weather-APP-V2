@@ -60,7 +60,9 @@
   margin: 0;
   list-style: none;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
+  width: 100%;
 }
 
 .hourly-weather__list--li {

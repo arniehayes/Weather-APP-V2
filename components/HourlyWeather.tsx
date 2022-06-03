@@ -24,7 +24,7 @@ const HourlyWeather = () => {
   const getTime = (currentHour) => {
     var time = currentHour;
     // adding +1 to the current hour for 12 hours
-    for (let i = 1; i < 12; i++) {
+    for (let i = 1; i < 13; i++) {
       time += i;
       if (time > 12) {
         time -= 12;
@@ -57,7 +57,7 @@ const HourlyWeather = () => {
         </div>
         <div className={style["list-scroll"]}>
           <ul className={style["hourly-weather__list"]}>
-            {hourlyForecast.length > 0 &&
+            {hourlyForecast &&
               zipped.map((item, key) => (
                 <li key={key} className={style["hourly-weather__list--li"]}>
                   <p className={style["hourly-weather__list--li-time"]}>
