@@ -36,7 +36,6 @@ const HourlyWeather = () => {
   };
   getTime(currentHour);
 
-
   const zipped = updatedTime.map((x, i) => [x, newHourly[i]]);
 
   return (
@@ -63,20 +62,20 @@ const HourlyWeather = () => {
                   <p className={style["hourly-weather__list--li-time"]}>
                     {item[0]}
                   </p>
-                  {hourlyForecast && hourlyForecast.length > 0 &&
+                  {hourlyForecast && hourlyForecast.length > 0 && (
                     <Image
                       src={"/" + item[1].weather[0].icon + "@2x.png"}
                       alt="weather-icon"
                       className={style["hourly-weather__list--li-icon"]}
-                      width="50px"
-                      height="50px"
+                      width={50}
+                      height={50}
                     />
-                  }
-                  {hourlyForecast && hourlyForecast.length > 0 &&
+                  )}
+                  {hourlyForecast && hourlyForecast.length > 0 && (
                     <p className={style["hourly-weather__list--li-temp"]}>
                       {Math.trunc(item[1].temp)}
                     </p>
-                  }
+                  )}
                 </li>
               ))}
           </ul>
