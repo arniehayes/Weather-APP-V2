@@ -28,8 +28,8 @@
   align-items: flex-start;
   overflow-y: hidden;
   overflow-x: scroll;
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .hourly-weather__title-container {
@@ -109,16 +109,14 @@
 }
 
 @media only screen and (min-width: 925px) {
-  .hourly-weather__list-container {
+  .list-scroll {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    border-radius: 10px;
     overflow-y: hidden;
     overflow-x: hidden;
-    background-color: $background-color;
-    color: $main-text-color;
     position: relative;
+    width: 100%;
   }
 }
