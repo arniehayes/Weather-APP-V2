@@ -3,7 +3,7 @@ import { AddressContext } from "../pages/index";
 import style from "../styles/currentWeather.module.scss";
 
 const CurrentWeather = () => {
-    const { dailyForecast, setBg } = useContext(AddressContext);
+    const { dailyForecast } = useContext(AddressContext);
 
     const truncatedValues = {
       temp: Math.trunc(dailyForecast[0].temp),
@@ -20,6 +20,9 @@ const CurrentWeather = () => {
       nightBG.style.background = "linear-gradient(180deg, #518acc 12%, #dbc7a4 80%)";
     }
   });
+
+  // TODO
+  // Use geolocation to get current location
 
     return (
       <div className={style["current-weather__container"]}>
