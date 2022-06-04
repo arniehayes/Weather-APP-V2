@@ -67,8 +67,8 @@ const HourlyWeather = () => {
                       src={"/" + item[1].weather[0].icon + "@2x.png"}
                       alt="weather-icon"
                       className={style["hourly-weather__list--li-icon"]}
-                      width={50}
-                      height={50}
+                      width="50"
+                      height="50"
                     />
                   )}
                   {hourlyForecast && hourlyForecast.length > 0 && (
