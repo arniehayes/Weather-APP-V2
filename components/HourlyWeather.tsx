@@ -9,20 +9,19 @@ const HourlyWeather = () => {
 
   const newHourly = hourlyForecast.slice(0, 12);
   const date = new Date();
-  var hour = date
+  let hour = date
     .toLocaleString("en-US", {
       timeZone: "America/Los_Angeles",
       hour: "numeric",
       hour12: true,
     })
     .replace(/AM|PM/, "");
-  var currentHour = Number(hour);
-
-  const updatedTime = ["Now"];
-
+  
+  let currentHour: number = Number(hour);
+  const updatedTime: [string | number] = ["Now"];
   // This function takes in the current time and gets the next 12 hours
-  const getTime = (currentHour) => {
-    var time = currentHour;
+  const getTime = (currentHour: number) => {
+    let time: number = currentHour;
     // adding +1 to the current hour for 12 hours
     for (let i = 1; i < 12; i++) {
       time += i;
@@ -47,9 +46,9 @@ const HourlyWeather = () => {
             width={18}
             height={18}
           />
-          <p className={style["hourly-weather__title--name"]}>
+          <span className={style["hourly-weather__title--name"]}>
             Hourly Forecast
-          </p>
+          </span>
         </div>
         <div className={style["hourly-weather__spacer-container"]}>
           <hr className={style["hourly-weather__spacer-container--hr"]} />
@@ -59,22 +58,22 @@ const HourlyWeather = () => {
             {hourlyForecast &&
               zipped.map((item, key) => (
                 <li key={key} className={style["hourly-weather__list--li"]}>
-                  <p className={style["hourly-weather__list--li-time"]}>
+                  <span className={style["hourly-weather__list--li-time"]}>
                     {item[0]}
-                  </p>
+                  </span>
                   {hourlyForecast && hourlyForecast.length > 0 && (
                     <Image
                       src={"/" + item[1].weather[0].icon + "@2x.png"}
                       alt="weather-icon"
                       className={style["hourly-weather__list--li-icon"]}
-                      width="50"
-                      height="50"
+                      width={50}
+                      height={50}
                     />
                   )}
                   {hourlyForecast && hourlyForecast.length > 0 && (
-                    <p className={style["hourly-weather__list--li-temp"]}>
+                    <span className={style["hourly-weather__list--li-temp"]}>
                       {Math.trunc(item[1].temp)}
-                    </p>
+                    </span>
                   )}
                 </li>
               ))}
