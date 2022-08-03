@@ -77,7 +77,7 @@ const WeeklyWeather = () => {
                   <span className={style["weekly-weather__content--minTemp"]}>
                     {Math.trunc(item.temp.min) + "°"}
                   </span>
-                  <span className={style["gradient-bar"]} />
+                  <span className={style["gradient-bar"]} id="gradientBar"/>
                   <span className={style["weekly-weather__content--maxTemp"]}>
                     {Math.trunc(item.temp.max) + "°"}
                   </span>
